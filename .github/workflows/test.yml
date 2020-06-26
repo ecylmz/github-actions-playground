@@ -11,7 +11,7 @@ jobs:
       - name: Cache foo/bar directory
         uses: actions/cache@v2
         env:
-          cache-name: cache-foo
+          cache-name: cache-foobar
         with:
           path: foo/bar
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
@@ -37,8 +37,8 @@ jobs:
           cache-name: cache-foo
         with:
           path: foo/bar
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}
+            ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: cat baz
         run: cat foo/bar/baz
