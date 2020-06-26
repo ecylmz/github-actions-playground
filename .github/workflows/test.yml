@@ -31,13 +31,5 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Cache foo/bar directory
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-foo
-        with:
-          path: foo/bar
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-      - name: cat baz
-        run: cat foo/bar/baz
+      - name: Docker Compose
+        run: docker-compose --version
