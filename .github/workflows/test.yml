@@ -14,9 +14,9 @@ jobs:
           cache-name: cache-foo
         with:
           path: foo/bar
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('foo\/bar\/baz') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('foo\/bar\/baz') }}
       - name: ls
         run: ls -al
       - name: Docker Compose
