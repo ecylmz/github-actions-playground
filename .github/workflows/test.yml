@@ -14,11 +14,11 @@ jobs:
           cache-name: cache-foo
         with:
           path: foo/bar
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('foo/bar/baz') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./foo/bar/baz') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('foo/bar/baz') }}
+            ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('./foo/bar/baz') }}
       - name: ls
-        run: ls -al foo/bar/baz
+        run: ls -al
       - name: Docker Compose
         run: docker-compose --version
       - name: touch baz
