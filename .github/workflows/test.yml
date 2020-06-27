@@ -41,4 +41,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Docker Compose
-        run: docker-compose --help
+        run: docker-compose --hel
+      - name: ls $HOME
+        run: |
+          pwd
+          ls -al
+          whoami
