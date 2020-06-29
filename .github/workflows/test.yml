@@ -13,23 +13,29 @@ jobs:
         env:
           cache-name: cache-foobar2
         with:
-          path: /home/runner/foo
+          path: /home/runner/BAR
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
+      - name: tree command
+        run: apt update && apt install -y tree
+      - name: tree
+        run: tree /home/runner
       - name: echo
         run: |
           echo $HOME
           ls -al $HOME
+          ls -al 
           echo ${{ env.HOME }}
+          ls -al $/home/runner/BAR
       - name: ls
         run: ls -al
       - name: Docker Compose
         run: docker-compose --version
       - name: touch baz
-        run: date >> $HOME/foo/bar
+        run: date >> $HOME/BAR/bar
       - name: cat baz
-        run: cat $HOME/foo/bar
+        run: cat $HOME/BAR/bar
   test2:
     name: Run test 2
     runs-on: ubuntu-latest
