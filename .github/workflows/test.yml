@@ -11,12 +11,12 @@ jobs:
       - name: Cache foo/bar directory
         uses: actions/cache@v2
         env:
-          cache-name: cache-foobar1
+          cache-name: cache-foobar2
         with:
-          path: ${{ env.HOME }}/foo
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-1-${{ hashFiles('README.md') }}
+          path: $HOME/foo
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-1-
+            ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: ls
         run: ls -al
       - name: Docker Compose
