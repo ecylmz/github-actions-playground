@@ -18,7 +18,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
       - name: tree command
-        run: apt update && apt install -y tree
+        run: sudo apt update && sudo apt install -y tree
       - name: tree
         run: tree /home/runner
       - name: echo
