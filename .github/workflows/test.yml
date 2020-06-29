@@ -13,7 +13,7 @@ jobs:
         env:
           cache-name: cache-foobar2
         with:
-          path: $HOME/foo
+          path: /home/runner/foo
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
