@@ -25,9 +25,9 @@ jobs:
         run: |
           echo $HOME
           ls -al $HOME
-          ls -al 
+          ls -al
           echo ${{ env.HOME }}
-          ls -al $/home/runner/BAR
+          ls -al /home/runner/BAR
       - name: ls
         run: ls -al
       - name: Docker Compose
