@@ -25,6 +25,10 @@ jobs:
         run: date >> foo/bar/baz
       - name: cat baz
         run: cat foo/bar/baz
+      - name: echo
+        run: |
+          echo $HOME
+          ls -al $HOME
   test2:
     name: Run test 2
     runs-on: ubuntu-latest
