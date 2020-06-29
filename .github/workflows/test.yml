@@ -17,6 +17,11 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('README.md') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
+      - name: echo
+        run: |
+          echo $HOME
+          ls -al $HOME
+          echo ${{ env.HOME }}
       - name: ls
         run: ls -al
       - name: Docker Compose
@@ -25,10 +30,6 @@ jobs:
         run: date >> $HOME/foo/bar
       - name: cat baz
         run: cat $HOME/foo/bar
-      - name: echo
-        run: |
-          echo $HOME
-          ls -al $HOME
   test2:
     name: Run test 2
     runs-on: ubuntu-latest
